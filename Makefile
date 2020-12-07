@@ -745,10 +745,12 @@ endif
 ifdef CONFIG_CC_IS_CLANG
 KBUILD_CFLAGS += -mcpu=cortex-a55
 KBUILD_AFLAGS += -mcpu=cortex-a55
-ifdef CONFIG_LLVM_POLLY
+ifdef CONFIG_POLLY_CLANG
 KBUILD_CFLAGS	+= -mllvm -polly \
 		   -mllvm -polly-ast-use-context \
+		   -mllvm -polly-detect-keep-going \
 		   -mllvm -polly-invariant-load-hoisting \
+		   -mllvm -polly-opt-fusion=max \
 		   -mllvm -polly-run-inliner \
 		   -mllvm -polly-vectorizer=stripmine
 # Polly may optimise loops with dead paths beyound what the linker
