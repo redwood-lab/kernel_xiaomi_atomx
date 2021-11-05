@@ -111,6 +111,8 @@ bool is_skip_op_required(struct dsi_display *display)
 	return (display->is_cont_splash_enabled || display->trusted_vm_env);
 }
 
+struct dsi_display *main_display;
+
 static void dsi_display_mask_ctrl_error_interrupts(struct dsi_display *display,
 			u32 mask, bool enable)
 {
