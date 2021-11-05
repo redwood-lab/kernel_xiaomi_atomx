@@ -274,6 +274,9 @@ struct dsi_panel {
 	struct dsi_panel_ops panel_ops;
 
 	int cached_fps;
+#ifdef CONFIG_DRM_SDE_EXPO
+	bool dimlayer_exposure;
+#endif
 };
 
 static inline bool dsi_panel_ulps_feature_enabled(struct dsi_panel *panel)
