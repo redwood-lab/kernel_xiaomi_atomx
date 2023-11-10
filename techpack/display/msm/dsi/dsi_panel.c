@@ -4903,11 +4903,6 @@ int dsi_panel_gamma_switch(struct dsi_panel *panel)
 {
 	int rc = 0;
 
-	if (panel->cached_fps == panel->cur_mode->timing.refresh_rate) {
-		DSI_DEBUG("[%s] skipped gama update\n", panel->name);
-		return rc;
-	}
-
 	mutex_lock(&panel->panel_lock);
 
 	if (panel->cur_mode->timing.refresh_rate == 120)
@@ -4922,8 +4917,6 @@ int dsi_panel_gamma_switch(struct dsi_panel *panel)
 		       panel->name, rc);
 
 	mutex_unlock(&panel->panel_lock);
-
-	panel->cached_fps = panel->cur_mode->timing.refresh_rate;
 
 	return rc;
 }

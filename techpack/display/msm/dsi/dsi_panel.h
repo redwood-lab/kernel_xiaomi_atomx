@@ -272,8 +272,6 @@ struct dsi_panel {
 	u32 tlmm_gpio_count;
 
 	struct dsi_panel_ops panel_ops;
-
-	int cached_fps;
 #ifdef CONFIG_DRM_SDE_EXPO
 	bool dimlayer_exposure;
 #endif
